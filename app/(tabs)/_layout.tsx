@@ -20,37 +20,36 @@ export default function TabLayout() {
 
   return (
     <Tabs
+    
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        // tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        // tabBarActiveBackgroundColor: '#212020',
+        tabBarStyle: { backgroundColor: "#212020", borderTopColor: "#212021" },
+        headerShown: useClientOnlyValue(false, false),
       }}>
       <Tabs.Screen
-        name="index"
+        name="Generate"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Generate',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="Blend"
         options={{
-          title: 'Tab Two',
+          title: 'Blend',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Explore"
+        options={{
+          title: 'Explore',
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
